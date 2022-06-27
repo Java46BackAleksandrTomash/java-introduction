@@ -60,25 +60,24 @@ public class ArrayInt {
 		return res;
 	}
 	public static void sort(int[] ar) {
-		for (int i = 0; i < ar.length; i++) {
-			moveMaxToEnd(ar);
-		}
-		//TODO
-		//Improve algorithm with a proper moveMaxToEnd method call
+		boolean flSorted = true;
+		int length = ar.length;
+		do {
+			flSorted = moveMaxToEnd(ar, length);
+			length--;
+		}while(!flSorted);
+		
 		
 	}
-	private static void moveMaxToEnd(int[] ar) {
-		for(int i = 1; i < ar.length; i++) {
+	private static boolean moveMaxToEnd(int[] ar, int length) {
+		boolean flSorted = true;
+		for(int i = 1; i < length; i++) {
 			if (ar[i - 1] > ar[i]) {
+				flSorted = false;
 				swap(ar, i);
 			}
 		}
-		//TODO
-		//Improve algorithm of moveMaxToEnd:
-		// (1) no compare of elements that already exist on the proper places
-		// (think of additional parameter of the method with code update)
-		// (2) terminate algorithm once an array is already sorted (think of returning some
-		// value with code update)
+		return flSorted;
 		
 	}
 	private static void swap(int[] ar, int index) {
@@ -107,8 +106,14 @@ public class ArrayInt {
 			}
 			middle = (left + right) / 2;
 		}
-		return left > right ? -1 : middle;
+		return left > right ? -(left + 1) : getFirstIndex(ar, middle, number);
 		//TODO
 		// fix the code for performing the method in accordance with the above definition (see the tests)
+	}
+	private static int getFirstIndex(int[] ar, int middle, int number) {
+		while(middle >= 0 && ar[middle]==number) {
+			middle--;
+		}
+		return middle + 1;
 	}
 }
