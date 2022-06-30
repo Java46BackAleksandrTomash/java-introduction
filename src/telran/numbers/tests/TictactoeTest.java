@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import telran.numbers.TictactoeGame;
 
-class Testtictactoe {
+class Testtictactoe { 
 
 	@Test
 	void TictactoeGametest1() {

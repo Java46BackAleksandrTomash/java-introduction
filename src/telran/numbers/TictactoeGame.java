@@ -8,7 +8,7 @@ public class TictactoeGame {
 	public static int tictactoeMove(char matrix[][], int numRow, int numCol, char symb) {
 		matrix[numRow][numCol] = symb;
 		if (isRowWin(matrix, numRow) || isColWin(matrix, numCol) || isDiag1Win(matrix) || isDiag2Win(matrix)) {
-			return 1;
+			return 1; 
 		}
 			if(isMatrixFull(matrix)) {
 				return 2;
