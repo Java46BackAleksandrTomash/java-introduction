@@ -31,7 +31,7 @@ public class ArrayInt {
 	}
 	/**
 	 * 
-	 * @param ar
+	 * @param arb
 	 * @param index
 	 * @return new array with removed number at the given index
 	 */
